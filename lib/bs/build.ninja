@@ -1,0 +1,23 @@
+rescript = 1
+g_finger := /Users/arun/Desktop/expense-tracker/node_modules/@rescript/react/lib/ocaml/install.stamp
+rule astj
+  command = /Users/arun/Desktop/expense-tracker/node_modules/rescript/darwinarm64/bsc.exe  -bs-v 10.1.4 -bs-jsx 4 -bs-jsx-mode classic  -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
+rule deps
+  command = /Users/arun/Desktop/expense-tracker/node_modules/rescript/darwinarm64/bsb_helper.exe -hash 0823272cd6e71c5fcc50dbb2bc98d04a $in
+  restat = 1
+o src/App.d : deps src/App.ast
+rule mij
+  command = /Users/arun/Desktop/expense-tracker/node_modules/rescript/darwinarm64/bsc.exe -I src/components/expenseHistory -I src/components/header -I src/components -I src/assets -I src -I /Users/arun/Desktop/expense-tracker/node_modules/@rescript/react/lib/ocaml   -bs-package-name expense-tracker-rescript -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/assets/AssetManager.ast : astj ../../src/assets/AssetManager.res
+o src/assets/AssetManager.d : deps src/assets/AssetManager.ast
+o src/assets/AssetManager.cmj src/assets/AssetManager.cmi ../../src/assets/AssetManager.bs.js : mij src/assets/AssetManager.ast
+o src/components/header/HeaderCmp.ast : astj ../../src/components/header/HeaderCmp.res
+o src/components/header/HeaderCmp.d : deps src/components/header/HeaderCmp.ast
+o src/components/header/HeaderCmp.cmj src/components/header/HeaderCmp.cmi ../../src/components/header/HeaderCmp.bs.js : mij src/components/header/HeaderCmp.ast
+o src/components/expenseHistory/ExpenseHistory.ast : astj ../../src/components/expenseHistory/ExpenseHistory.res
+o src/components/expenseHistory/ExpenseHistory.d : deps src/components/expenseHistory/ExpenseHistory.ast
+o src/components/expenseHistory/ExpenseHistory.cmj src/components/expenseHistory/ExpenseHistory.cmi ../../src/components/expenseHistory/ExpenseHistory.bs.js : mij src/components/expenseHistory/ExpenseHistory.ast

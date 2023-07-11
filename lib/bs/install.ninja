@@ -1,0 +1,22 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o App.cmi : cp ../bs/src/App.cmi
+o App.cmj : cp ../bs/src/App.cmj
+o App.cmt : cp ../bs/src/App.cmt
+o App.res : cp ../../src/App.res
+o AssetManager.cmi : cp ../bs/src/assets/AssetManager.cmi
+o AssetManager.cmj : cp ../bs/src/assets/AssetManager.cmj
+o AssetManager.cmt : cp ../bs/src/assets/AssetManager.cmt
+o AssetManager.res : cp ../../src/assets/AssetManager.res
+o HeaderCmp.cmi : cp ../bs/src/components/header/HeaderCmp.cmi
+o HeaderCmp.cmj : cp ../bs/src/components/header/HeaderCmp.cmj
+o HeaderCmp.cmt : cp ../bs/src/components/header/HeaderCmp.cmt
+o HeaderCmp.res : cp ../../src/components/header/HeaderCmp.res
+o ExpenseHistory.cmi : cp ../bs/src/components/expenseHistory/ExpenseHistory.cmi
+o ExpenseHistory.cmj : cp ../bs/src/components/expenseHistory/ExpenseHistory.cmj
+o ExpenseHistory.cmt : cp ../bs/src/components/expenseHistory/ExpenseHistory.cmt
+o ExpenseHistory.res : cp ../../src/components/expenseHistory/ExpenseHistory.res
+build install.stamp : touch App.cmi App.cmj AssetManager.cmi AssetManager.cmj HeaderCmp.cmi HeaderCmp.cmj ExpenseHistory.cmi ExpenseHistory.cmj 

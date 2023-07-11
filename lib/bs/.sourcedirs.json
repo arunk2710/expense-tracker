@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" , "src/assets" , "src/components" , "src/components/header" , "src/components/expenseHistory" ] , "pkgs" : [ [ "@rescript/react" , "/Users/arun/Desktop/expense-tracker/node_modules/@rescript/react" ] ] , "generated" : [] }
